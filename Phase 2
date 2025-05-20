@@ -1,0 +1,20 @@
+import os
+
+# Define variables
+repo_name = "house-price-prediction"
+github_username = "your-github-username"
+commit_message = "Initial commit with Phase-2 documentation"
+file_to_upload = "Forecasting_House_Prices_Phase2.docx"  # Add other files as needed
+
+# Create local repo folder
+os.makedirs(repo_name, exist_ok=True)
+os.rename(f"/mnt/data/{file_to_upload}", f"{repo_name}/{file_to_upload}")
+
+# Shell commands
+os.chdir(repo_name)
+os.system("git init")
+os.system(f"git remote add origin https://github.com/{github_username}/{repo_name}.git")
+os.system("git add .")
+os.system(f'git commit -m "{commit_message}"')
+os.system("git branch -M main")
+os.system("git push -u origin main")
